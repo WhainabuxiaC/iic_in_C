@@ -8,6 +8,7 @@ How to use iic
 5. 停止：SCL保持高电平，SDA由低到高跳变
 
 '''c
+//iic
 //引脚初始化
 void IIC_Init(void)
 {
@@ -25,9 +26,12 @@ void IIC_Init(void)
 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
 	HAL_GPIO_Init(SDA_GPIO, &GPIO_InitStruct);    
 	
-	IIC_SCL_H();  //#define IIC_SCL_H()  HAL_GPIO_WritePin(SCL_GPIO,SCL_GPIO_PIN,GPIO_PIN_SET)
-	IIC_SDA_H();  //#define IIC_SCL_L()  HAL_GPIO_WritePin(SCL_GPIO,SCL_GPIO_PIN,GPIO_PIN_RESET)
+	IIC_SCL_H();  //#define IIC_SCL_H()  HAL_GPIO_WritePin(SCL_GPIO,SCL_GPIO_PIN,GPIO_PIN_SET)	
+			//#define IIC_SCL_L()  HAL_GPIO_WritePin(SCL_GPIO,SCL_GPIO_PIN,GPIO_PIN_RESET)
+	IIC_SDA_H();  //#define IIC_SDA_H()    HAL_GPIO_WritePin(SDA_GPIO,SDA_GPIO_PIN,GPIO_PIN_SET)
+			//#define IIC_SDA_L()    HAL_GPIO_WritePin(SDA_GPIO,SDA_GPIO_PIN,GPIO_PIN_RESET)
 }
+
 void IIC_SDA_OUT()
 {
 	GPIO_InitTypeDef GPIO_InitStruct = {0};
@@ -50,6 +54,7 @@ void IIC_SDA_IN()
 	HAL_GPIO_Init(SDA_GPIO, &GPIO_InitStruct);    
     
 }
+
 //IIC起始信号
 void IIC_Start()
 {
