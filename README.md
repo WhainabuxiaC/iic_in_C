@@ -7,7 +7,7 @@ How to use iic
 4. 数据帧：发送端每发送一个字节数据（8bit），后面接受一个ACK/NACK（接收成功/接受不成功）信号
 5. 停止：SCL保持高电平，SDA由低到高跳变
 
-'''c
+'''
 //引脚初始化
 void IIC_Init(void)
 {
